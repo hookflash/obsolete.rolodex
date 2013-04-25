@@ -3,7 +3,7 @@
 Rolodex for Open Peer
 =====================
 
-Having a distributed and secure communication system [Open Peer](http://openpeer.org/) is quite useless if you have nobody to talk with.
+Having a distributed and secure communication system like [Open Peer](http://openpeer.org/) is quite useless if you have nobody to talk with.
 
 This rolodex SDK encompasses the following:
 
