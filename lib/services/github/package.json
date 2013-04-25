@@ -1,0 +1,11 @@
+{
+	"name": "openpeer-rolodex-service-github",
+	"version": "0.0.0",
+	"pm": "npm",
+	"private": true,
+	"main": "plugin.js",
+	"dependencies": {
+		"github": "git://github.com/sourcemint/node-github.git#12a7e92af6a34c06f2e9bd8196100b259eae9199",
+        "passport-github": "~0.1.4"
+	}
+}

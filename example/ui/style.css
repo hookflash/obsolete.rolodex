@@ -1,0 +1,36 @@
+
+HTML, BODY {
+	padding: 0px;
+	margin: 0px;
+	font-size: 12px;
+	font-family: Tahoma;
+}
+
+
+DIV.services {
+	width: 100%;
+	margin-top: 50px;
+}
+
+DIV.service {
+	width: 80%;
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid #000000;
+}
+
+DIV.service-auth {
+	background-color: #ececec;
+	width: 80%;
+	padding: 30px;
+	margin: 10px;
+	border: 1px solid #000000;
+}
+DIV.service-auth > BUTTON {
+	font-size: 20px;
+	padding: 10px;
+}
+
+DIV.hidden {
+	display: none;
+}
