@@ -12,24 +12,32 @@ DIV.services {
 	margin-top: 50px;
 }
 
+
 DIV.service {
 	width: 80%;
-	padding: 10px;
+	padding: 30px;
 	margin: 10px;
-	border: 1px solid #000000;
+	border: 1px solid rgb(253, 173, 2);
+	background-color: #ececec;
 }
 
+DIV.fetched {
+	border: 1px solid #00cc00;
+}
+
+
 DIV.service-auth {
-	background-color: #ececec;
 	width: 80%;
 	padding: 30px;
 	margin: 10px;
 	border: 1px solid #000000;
+	background-color: #ececec;
 }
 DIV.service-auth > BUTTON {
 	font-size: 20px;
 	padding: 10px;
 }
+
 
 DIV.hidden {
 	display: none;

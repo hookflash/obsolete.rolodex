@@ -27,6 +27,7 @@ Usage
 Install:
 
     npm install openpeer-rolodex
+    # Provision a Redis database
 
 When you first run your application, required dependencies for any configured
 service will be automatically installed. You can also install these manually:
@@ -51,12 +52,22 @@ For each service you want to integrate with you need to:
 The `rolodex.config.json` file must be structured as follows:
 
     {
+        "db": {
+            "redis": {
+                "host": "<redis host>",
+                "port": <redis port>,
+                # The following are defaults and may be omitted.
+                "password": "",
+                "prefix": "rolodex:"
+            }
+        },
         "routes": {
-            # These are the defaults and may be omitted.
+            # The following are defaults and may be omitted.
             authSuccess: "/",
             authFail: "/",
             auth: "/.openpeer-rolodex/auth",
             authCallback: "/.openpeer-rolodex/callback",
+            refetch: "/.openpeer-rolodex/refetch",
             services: "/.openpeer-rolodex/services",
             contacts: "/.openpeer-rolodex/contacts"
         },

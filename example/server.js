@@ -10,7 +10,7 @@ exports.main = function(callback) {
     try {
         var app = EXPRESS();
 
-        app.use(EXPRESS.logger());
+        //app.use(EXPRESS.logger());
         app.use(EXPRESS.cookieParser());
         app.use(EXPRESS.bodyParser());
         app.use(EXPRESS.session({ secret: "session secret" }));

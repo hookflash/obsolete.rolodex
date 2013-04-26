@@ -1,4 +1,7 @@
 {
+	"db": {
+		"redis": {}
+	},
 	"services": [
 	]
 }

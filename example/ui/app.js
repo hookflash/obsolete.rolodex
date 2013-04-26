@@ -29,8 +29,6 @@ console.log("contacts", contacts);
 
 		var fetching = false;
 
-		$("#services").html("");
-
 		for (var name in services) {
 
 			if (services[name].fetching) {
@@ -39,15 +37,37 @@ console.log("contacts", contacts);
 
 console.log("name", name, services[name]);
 
-			var serviceHtml;
+			var serviceHtml = null;
+
 			if (services[name].loggedin) {
 
 				serviceHtml = $("#service").clone();
 
+				var html = serviceHtml.html();
+				html = html.replace("{name}", name);
+				html = html.replace("{fetched}", services[name].contactsFetched);
+				html = html.replace("{total}", services[name].contactsTotal);
+				serviceHtml.html(html);
+
+				var button = $("button.refetch", serviceHtml);
+				button.click(function() {
+					$.get(services[name].refetchURL).done(function() {
+						fetch();
+					});
+				});
+
+				if (
+					!services[name].fetching &&
+					services[name].contactsTotal > 0 &&
+					services[name].contactsFetched === services[name].contactsTotal
+				) {
+					serviceHtml.addClass("fetched");
+				}
+
 			} else {
 
 				serviceHtml = $("#service-auth").clone();
-				var button = $("button", serviceHtml);
+				var button = $("button.login", serviceHtml);
 				button.html(button.html().replace("{name}", name));
 				button.click(function() {
 					window.location.replace(services[name].authURL);
@@ -56,14 +76,20 @@ console.log("name", name, services[name]);
 
 			serviceHtml.attr("id", "service-" + name);
 			serviceHtml.removeClass("hidden");
-			serviceHtml.appendTo("#services");
+
+			var existing = $("#service-" + name);
+			if (existing.length === 1) {
+				existing.replaceWith(serviceHtml);
+			} else {
+				serviceHtml.appendTo("#services");
+			}
 		}
 
 		if (fetching) {
 			// Wait 5 seconds and fetch again.
 			setTimeout(function() {
 				fetch();
-			}, 5 * 1000);
+			}, 2 * 1000);
 		}
 	}
 
