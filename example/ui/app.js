@@ -121,11 +121,11 @@ console.log("service", name, services[name]);
 		}).append($("<input/>").attr({
 			"type": "hidden",
 			"name": "successURL",
-			"value": window.location.href + "?success"
+			"value": window.location.href.replace(/\?.*$/, "") + "?success"
 		})).append($("<input/>").attr({
 			"type": "hidden",
 			"name": "failURL",
-			"value":  window.location.href + "?fail"
+			"value":  window.location.href.replace(/\?.*$/, "") + "?fail"
 		}))).find("#rolodex-auth-form").submit();		
 	}
 
