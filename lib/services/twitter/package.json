@@ -1,0 +1,10 @@
+{
+	"name": "openpeer-rolodex-service-twitter",
+	"version": "0.0.0",
+	"pm": "npm",
+	"private": true,
+	"main": "plugin.js",
+	"dependencies": {
+        "passport-twitter": "~0.1.4"
+	}
+}

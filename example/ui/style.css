@@ -19,6 +19,7 @@ DIV.service {
 	margin: 10px;
 	border: 1px solid rgb(253, 173, 2);
 	background-color: #ececec;
+	font-size: 20px;
 }
 
 DIV.fetched {

@@ -29,13 +29,13 @@ console.log("contacts", contacts);
 
 		var fetching = false;
 
-		for (var name in services) {
+		function syncService(name) {
 
 			if (services[name].fetching) {
 				fetching = true;
 			}
 
-console.log("name", name, services[name]);
+console.log("service", name, services[name]);
 
 			var serviceHtml = null;
 
@@ -83,6 +83,10 @@ console.log("name", name, services[name]);
 			} else {
 				serviceHtml.appendTo("#services");
 			}
+		}
+
+		for (var name in services) {
+			syncService(name);
 		}
 
 		if (fetching) {
