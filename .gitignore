@@ -1,4 +1,5 @@
 /.sm/
 /node_modules/
 /example/node_modules/
+/lib/services/twitter/node_modules/
 *.local.*
