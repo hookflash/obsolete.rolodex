@@ -70,7 +70,7 @@ console.log("name", name, services[name]);
 				var button = $("button.login", serviceHtml);
 				button.html(button.html().replace("{name}", name));
 				button.click(function() {
-					window.location.replace(services[name].authURL);
+					authenticateForService(services[name]);
 				});
 			}
 
@@ -101,13 +101,28 @@ console.log("name", name, services[name]);
 		 .fail(callback);
 	}
 
-
 	function fetchContacts(callback) {
 		$.getJSON("/.openpeer-rolodex/contacts")
 		 .done(function(data) {
 		 	return callback(null, data);
 		 })
 		 .fail(callback);
+	}
+
+	function authenticateForService(service) {
+		$("body").append($("<form/>").attr({
+			"action": service.authURL,
+			"method": "POST",
+			"id": "rolodex-auth-form"
+		}).append($("<input/>").attr({
+			"type": "hidden",
+			"name": "successURL",
+			"value": window.location.href + "?success"
+		})).append($("<input/>").attr({
+			"type": "hidden",
+			"name": "failURL",
+			"value":  window.location.href + "?fail"
+		}))).find("#rolodex-auth-form").submit();		
 	}
 
 })();

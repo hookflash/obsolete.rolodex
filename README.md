@@ -63,8 +63,6 @@ The `rolodex.config.json` file must be structured as follows:
         },
         "routes": {
             # The following are defaults and may be omitted.
-            authSuccess: "/",
-            authFail: "/",
             auth: "/.openpeer-rolodex/auth",
             authCallback: "/.openpeer-rolodex/callback",
             refetch: "/.openpeer-rolodex/refetch",
