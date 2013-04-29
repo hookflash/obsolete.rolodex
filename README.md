@@ -101,6 +101,18 @@ with callback URL `http://127.0.0.1:8080/.openpeer-rolodex/callback/github`.
         }
     }
 
+### [LinkedIn](http://linkedin.com/)
+
+Create application here https://www.linkedin.com/secure/developer
+
+    {
+        "name": "linkedin",
+        "passport": {
+            "apiKey": "<API Key>",
+            "secretKey": "<Secret Key>"
+        }
+    }
+
 
 License
 =======

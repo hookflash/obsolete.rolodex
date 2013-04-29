@@ -46,7 +46,7 @@ console.log("service", name, services[name]);
 				var html = serviceHtml.html();
 				html = html.replace("{name}", name);
 				html = html.replace("{fetched}", services[name].contactsFetched);
-				html = html.replace("{total}", services[name].contactsTotal);
+				html = html.replace("{total}", services[name].contactsTotal - services[name].contactsDropped);
 				serviceHtml.html(html);
 
 				var button = $("button.refetch", serviceHtml);
@@ -59,7 +59,7 @@ console.log("service", name, services[name]);
 				if (
 					!services[name].fetching &&
 					services[name].contactsTotal > 0 &&
-					services[name].contactsFetched === services[name].contactsTotal
+					(services[name].contactsFetched + services[name].contactsDropped) === services[name].contactsTotal
 				) {
 					serviceHtml.addClass("fetched");
 				}
