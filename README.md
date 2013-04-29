@@ -113,6 +113,18 @@ Create application here https://www.linkedin.com/secure/developer
         }
     }
 
+### [Facebook](http://facebook.com/)
+
+Create application here https://developers.facebook.com/apps
+
+    {
+        "name": "facebook",
+        "passport": {
+            "appID": "<App ID>",
+            "appSecret": "<App Secret>"
+        }
+    }
+
 
 License
 =======
