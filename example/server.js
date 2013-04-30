@@ -1,5 +1,6 @@
 
 const PATH = require("path");
+const FS = require("fs-extra");
 const EXPRESS = require("express");
 const ROLODEX = require("../");
 
@@ -15,11 +16,16 @@ exports.main = function(callback) {
         app.use(EXPRESS.bodyParser());
         app.use(EXPRESS.session({ secret: "session secret" }));
 
+        var path = PATH.join(__dirname, "../../..", "rolodex.config.local.json");
+        if (!FS.existsSync(path)) {
+            path = PATH.join(__dirname, "rolodex.config.json");
+        }
 		// NOTE: You can also pass the configuration as an object (instead of specifying the filepath)
 		// NOTE: If you want more control over how `ROLODEX` registers itself, see the `ROLODEX.hook()` implementation.
-        ROLODEX.hook(app, PATH.join(__dirname, "rolodex.config.json"), {
+        ROLODEX.hook(app, path, {
         	hostname: "localhost",
-        	port: PORT
+        	port: PORT,
+            debug: true
         });
 
         app.use(EXPRESS.static(PATH.join(__dirname, "ui")));

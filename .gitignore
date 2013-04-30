@@ -4,4 +4,3 @@
 /lib/services/twitter/node_modules/
 /lib/services/linkedin/node_modules/
 /lib/services/facebook/node_modules/
-*.local.*

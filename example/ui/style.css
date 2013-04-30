@@ -25,6 +25,16 @@ DIV.service {
 DIV.fetched {
 	border: 1px solid #00cc00;
 }
+DIV.error {
+	border: 1px solid #ff0000;	
+}
+
+DIV.service > DIV.error {
+	padding: 10px;
+	font-weight: bold;
+	margin-top: 20px;
+	color: #ff0000;
+}
 
 
 DIV.service-auth {

@@ -2,26 +2,37 @@
 (function() {
 
 	$(document).ready(function() {
-		fetch();
+
+		return fetchContacts("*", function(err, contacts) {
+			if (err) console.error(err);
+
+			console.log("All Contacts", contacts);
+
+			fetch();
+		});
 	});
+
+	var fetchContactsForService = {};
 
 	function fetch() {
 
-		function callback(err) {
-			if (err) console.error(err);
-		}
-
 		return fetchServices(function(err, services) {
-			if (err) return callback(err);
+			if (err) console.error(err);
 
 			syncServicesToDOM(services);
 
-			return fetchContacts(function(err, contacts) {
+			for (var serviceID in fetchContactsForService) {
 
-console.log("contacts", contacts);
+				return fetchContacts(serviceID, function(err, contacts) {
+					if (err) console.error(err);
 
-				return callback(null);
-			});
+					console.log("Contacts for", serviceID, contacts);
+
+					if (!services[serviceID].fetching) {
+						delete fetchContactsForService[serviceID];
+					}
+				});
+			}
 		});
 	}
 
@@ -33,9 +44,10 @@ console.log("contacts", contacts);
 
 			if (services[name].fetching) {
 				fetching = true;
+				fetchContactsForService[name] = true;
 			}
 
-console.log("service", name, services[name]);
+			console.log("Service Status", name, services[name]);
 
 			var serviceHtml = null;
 
@@ -47,6 +59,9 @@ console.log("service", name, services[name]);
 				html = html.replace("{name}", name);
 				html = html.replace("{fetched}", services[name].contactsFetched);
 				html = html.replace("{total}", services[name].contactsTotal - services[name].contactsDropped);
+				var percent = Math.ceil((services[name].contactsFetched / (services[name].contactsTotal - services[name].contactsDropped)) * 100);
+				if (services[name].contactsFetched === 0 || services[name].contactsTotalCapped) percent = 0;
+				html = html.replace("{percent}", percent);
 				serviceHtml.html(html);
 
 				var button = $("button.refetch", serviceHtml);
@@ -56,6 +71,14 @@ console.log("service", name, services[name]);
 					});
 				});
 
+				if (services[name].error) {
+
+					var error = $("DIV.error", serviceHtml);
+					error.removeClass("hidden");
+					error.html(services[name].error);
+					serviceHtml.addClass("error");
+
+				} else
 				if (
 					!services[name].fetching &&
 					services[name].contactsTotal > 0 &&
@@ -105,8 +128,8 @@ console.log("service", name, services[name]);
 		 .fail(callback);
 	}
 
-	function fetchContacts(callback) {
-		$.getJSON("/.openpeer-rolodex/contacts")
+	function fetchContacts(serviceID, callback) {
+		$.getJSON("/.openpeer-rolodex/contacts" + ((serviceID === "*")?"":"/"+serviceID))
 		 .done(function(data) {
 		 	return callback(null, data);
 		 })
