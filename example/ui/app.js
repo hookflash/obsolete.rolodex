@@ -59,8 +59,10 @@
 				html = html.replace("{name}", name);
 				html = html.replace("{fetched}", services[name].contactsFetched);
 				html = html.replace("{total}", services[name].contactsTotal - services[name].contactsDropped);
-				var percent = Math.ceil((services[name].contactsFetched / (services[name].contactsTotal - services[name].contactsDropped)) * 100);
+				var percent = Math.floor((services[name].contactsFetched / (services[name].contactsTotal - services[name].contactsDropped)) * 100);
 				if (services[name].contactsFetched === 0 || services[name].contactsTotalCapped) percent = 0;
+				if (percent === 100 && services[name].fetching) percent = 99;
+				if (percent === 100 && (services[name].contactsFetched + services[name].contactsDropped) < services[name].contactsTotal) percent = 99;
 				html = html.replace("{percent}", percent);
 				serviceHtml.html(html);
 
