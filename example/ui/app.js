@@ -70,6 +70,12 @@
 						fetch();
 					});
 				});
+				button = $("button.logout", serviceHtml);
+				button.click(function() {
+					$.get(services[name].logoutURL).done(function() {
+						fetch();
+					});
+				});
 
 				if (services[name].error) {
 

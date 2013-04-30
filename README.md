@@ -65,6 +65,7 @@ The `rolodex.config.json` file must be structured as follows:
             # The following are defaults and may be omitted.
             auth: "/.openpeer-rolodex/auth",
             authCallback: "/.openpeer-rolodex/callback",
+            logout: "/.openpeer-rolodex/logout",
             refetch: "/.openpeer-rolodex/refetch",
             services: "/.openpeer-rolodex/services",
             contacts: "/.openpeer-rolodex/contacts"
