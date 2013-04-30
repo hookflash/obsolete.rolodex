@@ -91,7 +91,7 @@ with callback URL `http://localhost:8080/.openpeer-rolodex/callback/github`.
 ### [Twitter](https://twitter.com/)
 
 Create application here https://dev.twitter.com/apps
-with callback URL `http://127.0.0.1:8080/.openpeer-rolodex/callback/github`.
+with callback URL `http://127.0.0.1:8080/.openpeer-rolodex/callback/twitter`.
 
     {
         "name": "twitter",
