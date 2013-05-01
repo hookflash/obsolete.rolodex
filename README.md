@@ -52,6 +52,12 @@ For each service you want to integrate with you need to:
 The `rolodex.config.json` file must be structured as follows:
 
     {
+        "allow": {
+            # Optional for cross-domain access.
+            "hosts": [
+                "localhost"
+            ]
+        },
         "db": {
             "redis": {
                 "host": "<redis host>",

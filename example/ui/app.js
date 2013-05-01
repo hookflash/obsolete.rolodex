@@ -1,6 +1,8 @@
 
 (function() {
 
+	var baseRolodexUrl = "/";
+
 	$(document).ready(function() {
 
 		return fetchContacts("*", function(err, contacts) {
@@ -129,19 +131,31 @@
 	}
 
 	function fetchServices(callback) {
-		$.getJSON("/.openpeer-rolodex/services")
-		 .done(function(data) {
+		$.ajax({
+			method: "GET",
+			dataType: "json",
+			url: baseRolodexUrl + ".openpeer-rolodex/services",
+			xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true
+		}).done(function(data) {
 		 	return callback(null, data);
-		 })
-		 .fail(callback);
+		}).fail(callback);
 	}
 
 	function fetchContacts(serviceID, callback) {
-		$.getJSON("/.openpeer-rolodex/contacts" + ((serviceID === "*")?"":"/"+serviceID))
-		 .done(function(data) {
+		$.ajax({
+			method: "GET",
+			dataType: "json",
+			url: baseRolodexUrl + ".openpeer-rolodex/contacts" + ((serviceID === "*")?"":"/"+serviceID),
+			xhrFields: {
+                withCredentials: true
+            },
+            crossDomain: true
+		}).done(function(data) {
 		 	return callback(null, data);
-		 })
-		 .fail(callback);
+		}).fail(callback);
 	}
 
 	function authenticateForService(service) {
