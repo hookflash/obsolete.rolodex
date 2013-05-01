@@ -10,6 +10,7 @@ This rolodex SDK encompasses the following:
   * Integration with [passport](http://passportjs.org/) for authentication with 120+ services.
   * Contact federation for any service with a *contacts* API (that we have a plugin for).
   * [connect](https://github.com/senchalabs/connect) middleware to service client requests.
+  * Contact information normalized to [hCard](http://microformats.org/wiki/hcard) properties.
 
 
 Example
