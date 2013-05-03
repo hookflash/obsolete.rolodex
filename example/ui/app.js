@@ -6,7 +6,7 @@
 	$(document).ready(function() {
 
 		return fetchContacts("*", function(err, contacts) {
-			if (err) console.error(err);
+			if (err) return console.error(err);
 
 			console.log("All Contacts", contacts);
 
@@ -19,21 +19,22 @@
 	function fetch() {
 
 		return fetchServices(function(err, services) {
-			if (err) console.error(err);
+			if (err) return console.error(err);
 
 			syncServicesToDOM(services);
 
 			for (var serviceID in fetchContactsForService) {
 
-				return fetchContacts(serviceID, function(err, contacts) {
-					if (err) console.error(err);
+				// Fetch contacts once we are no longer fetching.
+				if (!services[serviceID].fetching) {
+					return fetchContacts(serviceID, function(err, contacts) {
+						if (err) console.error(err);
 
-					console.log("Contacts for", serviceID, contacts);
+						console.log("Contacts for", serviceID, contacts);
 
-					if (!services[serviceID].fetching) {
 						delete fetchContactsForService[serviceID];
-					}
-				});
+					});
+				}
 			}
 		});
 	}

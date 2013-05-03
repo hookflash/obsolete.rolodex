@@ -5,12 +5,15 @@ Rolodex for Open Peer
 
 Having a distributed and secure communication system like [Open Peer](http://openpeer.org/) is quite useless if you have nobody to talk with.
 
-This rolodex SDK encompasses the following:
+This rolodex SDK supports the following:
 
   * Integration with [passport](http://passportjs.org/) for authentication with 120+ services.
   * Contact federation for any service with a *contacts* API (that we have a plugin for).
   * [connect](https://github.com/senchalabs/connect) middleware to service client requests.
   * Contact information normalized to [hCard](http://microformats.org/wiki/hcard) properties.
+  * Communication with services scheduled via [kickq](https://github.com/verbling/kickq).
+  * Contacts and service status cached in [redis](http://redis.io/).
+  * Easy horizontal round-robin scaling via shared-noting architecture (except for redis).
 
 
 Example
