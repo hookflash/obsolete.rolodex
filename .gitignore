@@ -1,6 +1,2 @@
 /.sm/
-/node_modules/
-/example/node_modules/
-/lib/services/twitter/node_modules/
-/lib/services/linkedin/node_modules/
-/lib/services/facebook/node_modules/
+node_modules/
