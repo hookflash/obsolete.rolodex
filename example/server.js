@@ -28,6 +28,8 @@ exports.main = function(callback) {
             debug: true
         });
 
+        mountStaticDir(app, /^\/rolodex\/(rolodex\.client\.js)$/, PATH.join(__dirname, "../lib"));
+
         app.use(EXPRESS.static(PATH.join(__dirname, "ui")));
 
         var server = app.listen(PORT);
@@ -42,6 +44,18 @@ exports.main = function(callback) {
         return callback(err);
     }
 }
+
+
+function mountStaticDir(app, route, path) {
+    app.get(route, function(req, res, next) {
+        var originalUrl = req.url;
+        req.url = req.params[0];
+        EXPRESS.static(path)(req, res, function() {
+            req.url = originalUrl;
+            return next.apply(null, arguments);
+        });
+    });
+};
 
 
 if (require.main === module) {

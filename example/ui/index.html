@@ -3,7 +3,15 @@
     <head>
 		<link rel="stylesheet" href="style.css">
 	    <script src="jquery.js"></script>
-	    <script src="app.js"></script>
+        <script src="require.js"></script>
+	    <script>
+            require.config({
+                paths: {
+                    "rolodex": "rolodex/rolodex.client"
+                }
+            });
+            require(["app"]);
+        </script>
     </head>
     <body>
     	<div id="services" class="services" align="center"></div>
