@@ -79,7 +79,8 @@ The `rolodex.config.json` file must be structured as follows:
             logout: "/.openpeer-rolodex/logout",
             refetch: "/.openpeer-rolodex/refetch",
             services: "/.openpeer-rolodex/services",
-            contacts: "/.openpeer-rolodex/contacts"
+            contacts: "/.openpeer-rolodex/contacts",
+            client: "/.openpeer-rolodex/client.js"
         },
         "services": [
             // One or more of the service config objects below.
