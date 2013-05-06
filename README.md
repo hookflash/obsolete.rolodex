@@ -43,7 +43,7 @@ service will be automatically installed. You can also install these manually:
 Integrate:
 
   * Server-side - See `./example/server.js`.
-  * Client-side - See `./example/ui/app.js`.
+  * Client-side - See `./example/ui/index.html` and `./example/ui/app.js`.
 
 
 Configuration
