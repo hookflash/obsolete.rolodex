@@ -74,13 +74,13 @@ The `rolodex.config.json` file must be structured as follows:
         },
         "routes": {
             # The following are defaults and may be omitted.
+            client: "/.openpeer-rolodex/client",
             auth: "/.openpeer-rolodex/auth",
             authCallback: "/.openpeer-rolodex/callback",
             logout: "/.openpeer-rolodex/logout",
             refetch: "/.openpeer-rolodex/refetch",
             services: "/.openpeer-rolodex/services",
-            contacts: "/.openpeer-rolodex/contacts",
-            client: "/.openpeer-rolodex/client.js"
+            contacts: "/.openpeer-rolodex/contacts"
         },
         "services": [
             // One or more of the service config objects below.

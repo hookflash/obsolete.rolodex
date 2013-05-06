@@ -1,6 +1,6 @@
 
 define([
-	"rolodex"
+	"rolodex/client"
 ], function(ROLODEX) {
 
 	var rolodex = new ROLODEX();
