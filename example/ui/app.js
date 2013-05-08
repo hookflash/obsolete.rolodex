@@ -25,7 +25,14 @@ define([
 
 				var button = $("button.refetch", serviceHtml);
 				button.click(function() {
-					rolodex.refetchContacts(serviceId);
+					rolodex.refetchContacts(serviceId).then(function(data) {
+						if (data.error) {
+							var error = $("DIV.error", serviceHtml);
+							error.removeClass("hidden");
+							error.html(data.error.message);
+							serviceHtml.addClass("error");
+						}
+					});
 				});
 				button = $("button.logout", serviceHtml);
 				button.click(function() {
