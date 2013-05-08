@@ -22,22 +22,25 @@ exports.main = function(callback) {
         }
 		// NOTE: You can also pass the configuration as an object (instead of specifying the filepath)
 		// NOTE: If you want more control over how `ROLODEX` registers itself, see the `ROLODEX.hook()` implementation.
-        ROLODEX.hook(app, path, {
+        return ROLODEX.hook(app, path, {
         	hostname: "localhost",
         	port: PORT,
             debug: true
+        }, function(err) {
+            if (err) return callback(err);
+
+            app.use(EXPRESS.static(PATH.join(__dirname, "ui")));
+
+            var server = app.listen(PORT);
+
+            console.log("open http://localhost:" + PORT + "/");
+
+            return callback(null, {
+                server: server,
+                port: PORT
+            });
         });
 
-        app.use(EXPRESS.static(PATH.join(__dirname, "ui")));
-
-        var server = app.listen(PORT);
-
-	    console.log("open http://localhost:" + PORT + "/");
-
-        return callback(null, {
-            server: server,
-            port: PORT
-        });
     } catch(err) {
         return callback(err);
     }
