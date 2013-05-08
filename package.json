@@ -1,6 +1,6 @@
 {
     "name": "openpeer-rolodex",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "pm": "npm",
     "publish": true,
     "main": "lib/rolodex.js",
