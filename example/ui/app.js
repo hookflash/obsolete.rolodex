@@ -78,7 +78,7 @@ define([
 
 		console.log("Contacts for", serviceId, contacts);
 
-		// As a test fetch all contacts starting with [c|e|x]
+		// As a test get all contacts starting with [c|e|x]
 
 		rolodex.getContacts(null, {
 			nickname: /^[c|e|x]/,
