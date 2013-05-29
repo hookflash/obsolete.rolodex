@@ -78,6 +78,21 @@ define([
 
 		console.log("Contacts for", serviceId, contacts);
 
+		// As a test fetch all contacts starting with [c|e|x]
+
+		rolodex.getContacts(null, {
+			nickname: /^[c|e|x]/,
+			fn: /^[c|e|x]/
+		}).then(function(contacts) {
+			console.log("Contacts starting with [c|e|x]", contacts);
+		});
+		rolodex.getContacts(serviceId, {
+			nickname: /^[c|e|x]/,
+			fn: /^[c|e|x]/
+		}).then(function(contacts) {
+			console.log("Contacts for", serviceId, "starting with [c|e|x]", contacts);
+		});
+
 	});
 
 
