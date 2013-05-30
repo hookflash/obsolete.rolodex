@@ -103,11 +103,4 @@ define([
 		console.log("Contact removed", uid, info);
 	});
 
-
-	$(document).ready(function() {
-
-		rolodex.init();
-
-	});
-
 });
