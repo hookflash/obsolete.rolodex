@@ -5,7 +5,7 @@ define([
 
 	var rolodex = new ROLODEX();
 
-	rolodex.on("fetched.services", function(services) {
+	rolodex.on("services.fetched", function(services) {
 		function renderService(serviceId, service) {
 
 			console.log("Service Status", serviceId, services[serviceId]);
@@ -74,7 +74,7 @@ define([
 		}
 	});
 
-	rolodex.on("fetched.contacts", function(serviceId, contacts) {
+	rolodex.on("contacts.fetched", function(serviceId, contacts) {
 
 		console.log("Contacts for", serviceId, contacts);
 
@@ -93,6 +93,14 @@ define([
 			console.log("Contacts for", serviceId, "starting with [c|e|x]", contacts);
 		});
 
+	});
+
+	rolodex.on("contact.added", function(uid, info) {
+		console.log("Contact added", uid, info);
+	});
+
+	rolodex.on("contact.removed", function(uid, info) {
+		console.log("Contact removed", uid, info);
 	});
 
 
