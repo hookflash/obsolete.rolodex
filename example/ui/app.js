@@ -8,6 +8,10 @@ define([
 	rolodex.on("services.fetched", function(services) {
 		function renderService(serviceId, service) {
 
+			rolodex.getContacts(serviceId).then(function(contacts) {
+				console.log("Contacts for", serviceId, contacts);
+			});
+
 			console.log("Service Status", serviceId, services[serviceId]);
 
 			var serviceHtml = null;
@@ -72,6 +76,10 @@ define([
 		for (var serviceId in services) {
 			renderService(serviceId, services[serviceId]);
 		}
+
+		rolodex.getContacts().then(function(contacts) {
+			console.log("Contacts", contacts);
+		});
 	});
 
 	rolodex.on("contacts.fetched", function(serviceId, contacts) {
