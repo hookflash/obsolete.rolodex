@@ -12,7 +12,7 @@ This rolodex SDK supports the following:
   * [Q](https://github.com/kriskowal/q) promise based [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD)-compatible client API.
   * [connect](https://github.com/senchalabs/connect) middleware to service client requests.
   * Contact information normalized to [hCard](http://microformats.org/wiki/hcard) properties.
-  * Communication with services scheduled via [kickq](https://github.com/verbling/kickq) (*currently disabled due to kickq [bug](https://github.com/verbling/kickq/issues/5)*)
+  * Communication with services scheduled via [kickq](https://github.com/verbling/kickq) ( *currently disabled due to kickq [bug](https://github.com/verbling/kickq/issues/5)* )
   * Contacts and service status cached in [redis](http://redis.io/).
   * Easy horizontal round-robin scaling via shared-noting architecture (requires central redis).
 
