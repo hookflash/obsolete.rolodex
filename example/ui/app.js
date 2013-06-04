@@ -101,6 +101,17 @@ define([
 			console.log("Contacts for", serviceId, "starting with [c|e|x]", contacts);
 		});
 
+		// TODO: Make this more generic so we can fetch details of any user via UI.
+		rolodex.getContacts(serviceId, {
+			nickname: /^ca/
+		}).then(function(contacts) {
+			console.log("Fetch full contact details for", contacts);
+			for (var contactId in contacts) {
+				rolodex.getFullContact(contacts[contactId].uid).then(function(detail) {
+					console.log("Full contact detail for", contactId, detail);
+				}).done();
+			}
+		});
 	});
 
 	rolodex.on("contact.added", function(uid, info) {
