@@ -14,6 +14,12 @@
         "request": "~2.20.0",
         "kickq": "~0.0.15",
         "connect": "~2.7.8",
-        "q": "~0.9.4"
+        "q": "~0.9.4",
+        "cifre": "~0.0.7"
+    },
+    "config": {
+        "run": {
+            "packagePath": "openpeer"
+        }
     }
 }
