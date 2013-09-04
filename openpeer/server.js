@@ -7,7 +7,7 @@ const ROLODEX = require("../");
 const PORT = process.env.PORT || 8080;
 
 
-exports.main = function(callback) {
+exports.main = function(options, callback) {
     try {
         var app = EXPRESS();
 
@@ -23,7 +23,8 @@ exports.main = function(callback) {
         return ROLODEX.hook(app, path, {
         	hostname: "localhost",
         	port: PORT,
-            debug: true
+            debug: true,
+            test: options.test || false
         }, function(err) {
             if (err) return callback(err);
 
@@ -44,7 +45,7 @@ exports.main = function(callback) {
 
 
 if (require.main === module) {
-    exports.main(function(err) {
+    exports.main({}, function(err) {
         if (err) {
             console.error(err.stack);
             process.exit(1);
