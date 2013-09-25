@@ -11,7 +11,7 @@ exports.main = function(options, callback) {
     try {
         var app = EXPRESS();
 
-        //app.use(EXPRESS.logger());
+        app.use(EXPRESS.logger());
         app.use(EXPRESS.cookieParser());
         app.use(EXPRESS.bodyParser());
 
