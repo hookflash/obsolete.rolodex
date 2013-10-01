@@ -23,7 +23,7 @@ exports.main = function(options, callback) {
         return ROLODEX.hook(app, path, {
         	hostname: "localhost",
         	port: PORT,
-            debug: true,
+            debug: false,
             test: options.test || false
         }, function(err) {
             if (err) return callback(err);

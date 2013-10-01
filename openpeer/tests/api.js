@@ -199,13 +199,13 @@ describe("api", function() {
         ASSERT.deepEqual(result.identities.identity, [
             {
                 "$disposition": "remove",
-                "uri": "identity://github/1",
-                "provider": "github"
+                "uri": "identity://github.com/1",
+                "provider": "github.com"
             },
             {
                 "$disposition": "update",
-                "uri": "identity://github/3",
-                "provider": "github",
+                "uri": "identity://github.com/3",
+                "provider": "github.com",
                 "name": "c",
                 "profile": "",
                 "vprofile": "",
