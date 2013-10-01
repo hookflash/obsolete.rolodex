@@ -32,7 +32,7 @@ describe("api", function() {
             url: "http://localhost:" + serverInfo.port + "/rolodex-access",
             body: JSON.stringify({
               "request": {
-                "$domain": "provider.com",
+                "$domain": "idprovider-javascript.hookflash.me",
                 "$appid": "xyz123",
                 "$id": "abd23",
                 "$handler": "rolodex",
@@ -82,7 +82,7 @@ describe("api", function() {
             url: "http://localhost:" + serverInfo.port + "/rolodex-contacts-get",
             body: JSON.stringify({
               "request": {
-                "$domain": "provider.com",
+                "$domain": "idprovider-javascript.hookflash.me",
                 "$appid": "xyz123",
                 "$id": "abd23",
                 "$handler": "rolodex",
