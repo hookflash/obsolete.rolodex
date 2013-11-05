@@ -7,18 +7,43 @@ const ROLODEX = require("../");
 const PORT = process.env.PORT || 8080;
 
 
+var config = null;
+var serviceUid = false;
+if (FS.existsSync(PATH.join(__dirname, "../service.json"))) {
+    config = JSON.parse(FS.readFileSync(PATH.join(__dirname, "../service.json")));
+    serviceUid = config.uid;
+}
+
+
 exports.main = function(options, callback) {
     try {
         var app = EXPRESS();
+
+        app.use(function(req, res, next) {
+            if (serviceUid) {
+                res.setHeader("x-service-uid", serviceUid);
+            }
+            if (req.url === "/") {
+                return res.end();
+            }
+            return next();
+        });
 
         app.use(EXPRESS.logger());
         app.use(EXPRESS.cookieParser());
         app.use(EXPRESS.bodyParser());
 
-        var path = PATH.join(__dirname, "rolodex.config.local.json");
-        if (!FS.existsSync(path)) {
-            path = PATH.join(__dirname, "rolodex.config.json");
+        var path = null;
+        if (config && config.config && config.config["rolodex.config.json"]) {
+            path = config.config["rolodex.config.json"];
+        } else {
+            path = PATH.join(__dirname, "rolodex.config.local.json");
+            if (!FS.existsSync(path)) {
+                path = PATH.join(__dirname, "rolodex.config.json");
+            }
         }
+
+        console.log("use config", path);
 
         return ROLODEX.hook(app, path, {
         	hostname: "localhost",
