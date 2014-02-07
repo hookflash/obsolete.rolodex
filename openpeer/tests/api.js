@@ -86,7 +86,7 @@ describe("api", function() {
                 "$appid": "xyz123",
                 "$id": "abd23",
                 "$handler": "rolodex",
-                "$method": "rolodex-access",
+                "$method": "rolodex-contacts-get",
                 // TODO: Implement security.
                 //"clientNonce": "ed585021eec72de8634ed1a5e24c66c2",
                 "rolodex": {
