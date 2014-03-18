@@ -5,6 +5,8 @@ const REQUEST = require("request");
 
 var TOKEN = "<TOKEN>";
 
+// curl -X POST -d @/pinf2/hookflash/projects/github.com+openpeer+hcs-instance-v1/projects/github.com+openpeer+rolodex/openpeer/tests/contacts-get-request.json http://rolodex-v1-beta-1-i.hcs.io/.openpeer-rolodex/rolodex-contacts-get --header "Content-Type:application/json"
+
 describe("api", function() {
 
     this.timeout(30 * 1000);

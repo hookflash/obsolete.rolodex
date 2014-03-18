@@ -1,0 +1,17 @@
+{
+    "request": {
+        "$domain": "identity-v1-beta-1-i.hcs.io",
+        "$appid": "com.hookflash.HookflashMessenger-rtcTQjPSEM68f6W2H52K-1397409453-0f2e457efad7dd68ed8486e73e10c9105ca238f3",
+        "$timestamp": 1394819319,
+        "$handler": "rolodex",
+        "$id": "0slUKB7z5U1AcyLAlDHRP5LJGAa1LeLt",
+        "$method": "rolodex-contacts-get",
+        "nonce": "RvOP31qr53bCyMOFkJ5yqraMjJgxL89s",
+        "rolodex": {
+            "serverToken": "858a5ad31d5b5b52e4db4ef8e7a6101a-b10fb7f5d995003d2193763bccc647aabf450dd2bd3f57b5026d4286adf098f6a8f3ee1364fbebd55648fea5a96e963b33c5db9886608d4a275ce50f841b99cee419152acfb0e7ce8cca35eed50a8ab7a78884362d248879757db876688b322f4fbebffde0c6efcf301e212c18c5198fd2e5bd65313cdff6e9cf898b2adf8b8c2243a28264d7ca788572ddf1f8306374cec4733f24e2cece7742b29f7034f2331e852e328bdefaa7592fc569c6e5f5938e16eb52420089b95ca10bc7df41fb7c2bacb8a4e8da499b6fa0592b56ce3ac32efa55512dae3dd5232611bb2e36ee1c0c3f0246dd8fd8b1c56068fe9dbf1be69c5f745e405212b01003339ef2bf1a2f25b8c65e8ce7",
+            "accessToken": "cf639e670261439ac862d6187fccbccd",
+            "accessSecretProof": "86b8b1194aa3f8a3eee6e775830cab31f2717637",
+            "refresh": true
+        }
+    }
+}
