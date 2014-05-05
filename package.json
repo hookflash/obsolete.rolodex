@@ -19,6 +19,9 @@
     "config": {
         "run": {
             "packagePath": "openpeer"
+        },
+        "pio.deploy.converter": {
+            "name": "hcs.server/plugins/pio.deploy.converter"
         }
     }
 }
