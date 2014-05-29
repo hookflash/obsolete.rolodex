@@ -12,6 +12,6 @@
 	},
 	"scripts": {
 		"start": "node .",
-		"test": "make test"
+		"test": "node_modules/.bin/mocha --reporter $(REPORTER) tests/*.js"
 	}
 }

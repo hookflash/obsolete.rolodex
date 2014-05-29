@@ -16,12 +16,16 @@
         "q": "~0.9.4",
         "cifre": "~0.0.8"
     },
+    "scripts": {
+        "postinstall": "cd openpeer ; npm install --production"
+    },
     "config": {
         "run": {
             "packagePath": "openpeer"
         },
         "pio.deploy.converter": {
-            "name": "hcs.server/plugins/pio.deploy.converter"
+            "name": "nodejs-server",
+            "main": "openpeer/server.js"
         }
     }
 }
