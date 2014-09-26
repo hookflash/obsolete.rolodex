@@ -12,8 +12,10 @@ var serviceUid = false;
 if (FS.existsSync(PATH.join(__dirname, "../service.json"))) {
     config = JSON.parse(FS.readFileSync(PATH.join(__dirname, "../service.json")));
     serviceUid = config.uid;
+} else
+if (FS.existsSync(PATH.join(__dirname, "../../.pio.json"))) {
+    config = JSON.parse(FS.readFileSync(PATH.join(__dirname, "../../.pio.json")));
 }
-
 
 exports.main = function(options, callback) {
     try {

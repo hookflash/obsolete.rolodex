@@ -17,15 +17,28 @@
         "cifre": "~0.0.8"
     },
     "scripts": {
-        "postinstall": "cd openpeer ; npm install --production"
+        "postinstall": "cd example ; npm install --production"
     },
     "config": {
         "run": {
-            "packagePath": "openpeer"
+            "packagePath": "example"
         },
         "pio.deploy.converter": {
             "name": "nodejs-server",
-            "main": "openpeer/server.js"
+            "main": "example/server.js"
         }
+    },
+    "overlay": {
+        "scripts": {
+            "postinstall": "cd openpeer ; npm install --production"
+        },
+        "config": {
+            "run": {
+                "packagePath": "openpeer"
+            },
+            "pio.deploy.converter": {
+                "main": "openpeer/server.js"
+            }
+        }        
     }
 }
